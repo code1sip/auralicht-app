@@ -130,7 +130,7 @@ export default function AdminDashboard({ token, onLogout }) {
       {/* Topbar */}
       <header className="admin-topbar">
         <div className="admin-brand">
-          <img src="/logo2.webp" alt="Auralicht" className="admin-logo" />
+          <img src="./logo2.webp" alt="Auralicht" className="admin-logo" />
           <div className="admin-title-box">
             <span className="admin-title">Auralicht Admin</span>
             <span className="admin-badge">Anfragen-Verwaltung</span>

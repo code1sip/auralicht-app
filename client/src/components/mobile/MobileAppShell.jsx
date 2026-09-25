@@ -88,7 +88,7 @@ export default function MobileAppShell({
             style={{ cursor: 'pointer' }}
           >
             <img
-              src="/assets/images/canan-portrait-i.png"
+              src="./assets/images/canan-portrait-i.png"
               alt="Canan Kalman"
               className="mobile-avatar"
             />

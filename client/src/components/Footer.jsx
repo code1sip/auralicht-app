@@ -18,7 +18,7 @@ export default function Footer({ setActivePage, openInquiryModal }) {
           <div className="footer-col">
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '18px' }}>
               <img
-                src="/logo2.webp"
+                src="./logo2.webp"
                 alt="Auralicht"
                 style={{ height: '40px', borderRadius: '4px', filter: 'brightness(1.1)' }}
               />

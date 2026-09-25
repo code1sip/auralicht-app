@@ -42,7 +42,7 @@ export default function Navbar({ activePage, setActivePage, openInquiryModal }) 
             style={{ cursor: 'pointer' }}
           >
             <img
-              src="/logo2.webp"
+              src="./logo2.webp"
               alt="Auralicht Logo"
               className="nav-logo-img"
               onError={(e) => {
@@ -119,7 +119,7 @@ export default function Navbar({ activePage, setActivePage, openInquiryModal }) 
       <div className={`mobile-drawer ${mobileMenuOpen ? 'open' : ''}`}>
         <div className="drawer-header">
           <div className="nav-brand">
-            <img src="/logo2.webp" alt="Auralicht" style={{ height: '34px', borderRadius: '4px' }} />
+            <img src="./logo2.webp" alt="Auralicht" style={{ height: '34px', borderRadius: '4px' }} />
             <span className="nav-brand-title" style={{ fontSize: '1.2rem' }}>Auralicht</span>
           </div>
           <button

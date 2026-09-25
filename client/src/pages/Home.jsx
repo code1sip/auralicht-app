@@ -141,11 +141,11 @@ export default function Home({ setActivePage, openInquiryModal }) {
             <div className="hero-image-wrap">
               <div className="hero-img-container">
                 <img
-                  src="/assets/images/canan-hero.png"
+                  src="./assets/images/canan-hero.png"
                   alt="Canan Kalman – Humanenergetikerin Salzburg"
                   className="hero-img"
                   onError={(e) => {
-                    e.target.src = '/assets/images/canan-portrait-i.png';
+                    e.target.src = './assets/images/canan-portrait-i.png';
                   }}
                 />
               </div>
@@ -226,7 +226,7 @@ export default function Home({ setActivePage, openInquiryModal }) {
           <div className="about-grid">
             <div className="about-portrait-wrap text-center">
               <img
-                src="/assets/images/canan-portrait-i.png"
+                src="./assets/images/canan-portrait-i.png"
                 alt="Canan Kalman"
                 className="about-portrait-img"
               />

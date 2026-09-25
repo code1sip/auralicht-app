@@ -127,7 +127,7 @@ export default function MobileHome({ setActiveTab, onSelectMethod }) {
       <div className="mobile-practitioner-card" onClick={() => setActiveTab('about')}>
         <div className="practitioner-photo-frame">
           <img
-            src="/assets/images/canan-portrait-i.png"
+            src="./assets/images/canan-portrait-i.png"
             alt="Canan Kalman"
             className="practitioner-photo"
           />

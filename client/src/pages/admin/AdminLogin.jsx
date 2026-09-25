@@ -48,7 +48,7 @@ export default function AdminLogin({ onLoginSuccess }) {
       <div className="login-card">
         <div style={{ textAlign: 'center', marginBottom: '28px' }}>
           <img
-            src="/logo2.webp"
+            src="./logo2.webp"
             alt="Auralicht Logo"
             style={{ height: '46px', margin: '0 auto 12px' }}
           />

@@ -30,7 +30,7 @@ export default function About({ openInquiryModal }) {
           <div className="about-grid">
             <div className="about-portrait-wrap text-center">
               <img
-                src="/assets/images/canan-portrait-i.png"
+                src="./assets/images/canan-portrait-i.png"
                 alt="Canan Kalman"
                 className="about-portrait-img"
               />
@@ -93,7 +93,7 @@ export default function About({ openInquiryModal }) {
           <div style={{ maxWidth: '900px', margin: '0 auto' }}>
             <div className="diploma-gallery-card">
               <img
-                src="/assets/images/diplomas-screenshot.jpg"
+                src="./assets/images/diplomas-screenshot.jpg"
                 alt="Diplome und Zertifikate von Canan Kalman"
                 className="diploma-img"
               />
@@ -126,7 +126,7 @@ export default function About({ openInquiryModal }) {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px', marginTop: '36px' }}>
             <div style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-md)' }}>
               <img
-                src="/assets/images/hero-wellness-room.jpg"
+                src="./assets/images/hero-wellness-room.jpg"
                 alt="Ruhiger Praxisraum Auralicht Salzburg"
                 style={{ width: '100%', height: '320px', objectFit: 'cover', display: 'block' }}
               />
@@ -138,7 +138,7 @@ export default function About({ openInquiryModal }) {
 
             <div style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-md)' }}>
               <img
-                src="/assets/images/canan-office.jpg"
+                src="./assets/images/canan-office.jpg"
                 alt="Beratungsbereich Canan Kalman"
                 style={{ width: '100%', height: '320px', objectFit: 'cover', display: 'block' }}
               />

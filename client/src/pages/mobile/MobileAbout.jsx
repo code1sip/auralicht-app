@@ -30,7 +30,7 @@ export default function MobileAbout({ onBookAppointment }) {
       {/* 1. Practitioner Header Card */}
       <div className="mobile-welcome-card" style={{ background: '#FFFFFF', color: 'var(--text-main)', border: '1px solid var(--border-light)', boxShadow: '0 4px 16px rgba(0,0,0,0.04)', padding: '24px 18px', textAlign: 'center' }}>
         <img
-          src="/assets/images/canan-portrait-i.png"
+          src="./assets/images/canan-portrait-i.png"
           alt="Canan Kalman"
           style={{ width: '96px', height: '96px', borderRadius: '50%', objectFit: 'cover', margin: '0 auto 12px', border: '3px solid var(--sage-soft)', boxShadow: '0 4px 14px rgba(0,0,0,0.08)' }}
         />
@@ -123,7 +123,7 @@ export default function MobileAbout({ onBookAppointment }) {
           {showDiplomas && (
             <div style={{ marginTop: '12px' }}>
               <img
-                src="/assets/images/diplomas-screenshot.jpg"
+                src="./assets/images/diplomas-screenshot.jpg"
                 alt="Diplome und Zertifikate"
                 style={{ width: '100%', borderRadius: '12px', border: '1px solid var(--border-light)', display: 'block' }}
               />
@@ -144,14 +144,14 @@ export default function MobileAbout({ onBookAppointment }) {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '16px' }}>
           <div style={{ borderRadius: '12px', overflow: 'hidden', height: '110px' }}>
             <img
-              src="/assets/images/hero-wellness-room.jpg"
+              src="./assets/images/hero-wellness-room.jpg"
               alt="Praxisraum"
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
           </div>
           <div style={{ borderRadius: '12px', overflow: 'hidden', height: '110px' }}>
             <img
-              src="/assets/images/canan-office.jpg"
+              src="./assets/images/canan-office.jpg"
               alt="Beratungsbereich"
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />

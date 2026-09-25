@@ -23,7 +23,7 @@ export default function MobileProfile({ onOpenAdmin, onOpenLegal }) {
       {/* Profile Header Card */}
       <div className="mobile-welcome-card" style={{ background: '#FFFFFF', color: 'var(--text-main)', border: '1px solid var(--border-light)', boxShadow: '0 4px 16px rgba(0,0,0,0.04)', padding: '22px 18px', textAlign: 'center' }}>
         <img
-          src="/assets/images/canan-portrait-i.png"
+          src="./assets/images/canan-portrait-i.png"
           alt="Canan Kalman"
           style={{ width: '84px', height: '84px', borderRadius: '50%', objectFit: 'cover', margin: '0 auto 12px', border: '3px solid var(--sage-soft)' }}
         />
@@ -103,7 +103,7 @@ export default function MobileProfile({ onOpenAdmin, onOpenLegal }) {
               <li>✦ In Ausbildung: Legasthenie- & Dyskalkulietrainerin</li>
             </ul>
             <img
-              src="/assets/images/diplomas-screenshot.jpg"
+              src="./assets/images/diplomas-screenshot.jpg"
               alt="Diplome"
               style={{ width: '100%', borderRadius: '12px', border: '1px solid var(--border-light)', display: 'block' }}
             />
@@ -118,12 +118,12 @@ export default function MobileProfile({ onOpenAdmin, onOpenLegal }) {
         </h4>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
           <img
-            src="/assets/images/hero-wellness-room.jpg"
+            src="./assets/images/hero-wellness-room.jpg"
             alt="Praxisraum"
             style={{ width: '100%', height: '90px', objectFit: 'cover', borderRadius: '10px' }}
           />
           <img
-            src="/assets/images/canan-office.jpg"
+            src="./assets/images/canan-office.jpg"
             alt="Beratung"
             style={{ width: '100%', height: '90px', objectFit: 'cover', borderRadius: '10px' }}
           />
