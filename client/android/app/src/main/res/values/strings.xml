@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Auralicht</string>
+    <string name="title_activity_main">Auralicht</string>
+    <string name="package_name">com.auralicht.app</string>
+    <string name="custom_url_scheme">com.auralicht.app</string>
+</resources>

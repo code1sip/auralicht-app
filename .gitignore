@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Production builds
+dist/
+client/dist/
+
+# Android build outputs & caches
+.gradle/
+client/android/.gradle/
+client/android/build/
+client/android/app/build/
+*.apk
+*.aab
+
+# iOS build outputs & caches
+client/ios/App/build/
+client/ios/App/DerivedData/
+*.xcarchive
+*.ipa
+.DS_Store
+
+# IDE & system
+.idea/
+.vscode/
+*.swp
+*.swo
+.agents/
+.gemini/
+*.log
