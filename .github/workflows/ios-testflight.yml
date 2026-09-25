@@ -8,14 +8,14 @@ on:
 
 jobs:
   build-and-deploy:
-    name: Build iOS IPA & Upload to TestFlight
+    name: Build iOS App & TestFlight
     runs-on: macos-latest
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node.js 22
         uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -42,29 +42,58 @@ jobs:
         with:
           xcode-version: latest-stable
 
+      - name: Build iOS Simulator App (Zero Certificate Required)
+        run: |
+          cd client/ios/App
+          xcodebuild -project App.xcodeproj \
+            -scheme App \
+            -configuration Release \
+            -sdk iphonesimulator \
+            -derivedDataPath build/derivedData \
+            CODE_SIGNING_ALLOWED=NO
+          
+          cd build/derivedData/Build/Products/Release-iphonesimulator
+          zip -r Auralicht-iOS-Simulator.zip App.app
+
+      - name: Upload iOS Simulator Build (Instant Testing / Appetize.io)
+        uses: actions/upload-artifact@v4
+        with:
+          name: Auralicht-iOS-Simulator-App
+          path: client/ios/App/build/derivedData/Build/Products/Release-iphonesimulator/Auralicht-iOS-Simulator.zip
+
+      - name: Check for Apple Developer Secrets
+        id: check_secrets
+        run: |
+          if [ -n "${{ secrets.BUILD_CERTIFICATE_BASE64 }}" ] && [ -n "${{ secrets.ASC_KEY_ID }}" ]; then
+            echo "has_secrets=true" >> $GITHUB_OUTPUT
+            echo "Apple Developer Secrets found. Proceeding with TestFlight deployment."
+          else
+            echo "has_secrets=false" >> $GITHUB_OUTPUT
+            echo "Notice: Apple Developer Secrets not yet configured in GitHub. Simulator build succeeded and is available in Artifacts."
+          fi
+
       - name: Install Apple Certificates & Provisioning Profile
+        if: steps.check_secrets.outputs.has_secrets == 'true'
         env:
           BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
           P12_PASSWORD: ${{ secrets.P12_PASSWORD }}
           BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}
           KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
         run: |
-          # Create temporary keychain
           security create-keychain -p "$KEYCHAIN_PASSWORD" build.keychain
           security default-keychain -s build.keychain
           security unlock-keychain -p "$KEYCHAIN_PASSWORD" build.keychain
           security set-keychain-settings -lut 21600 build.keychain
 
-          # Import certificate to keychain
           echo -n "$BUILD_CERTIFICATE_BASE64" | base64 --decode -o certificate.p12
           security import certificate.p12 -k build.keychain -P "$P12_PASSWORD" -T /usr/bin/codesign
           security set-key-partition-list -S apple-tool:,apple: -s -k "$KEYCHAIN_PASSWORD" build.keychain
 
-          # Install provisioning profile
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           echo -n "$BUILD_PROVISION_PROFILE_BASE64" | base64 --decode -o ~/Library/MobileDevice/Provisioning\ Profiles/profile.mobileprovision
 
-      - name: Build & Archive iOS Project
+      - name: Build & Archive iOS Project for Device
+        if: steps.check_secrets.outputs.has_secrets == 'true'
         run: |
           cd client/ios/App
           xcodebuild -project App.xcodeproj \
@@ -75,6 +104,7 @@ jobs:
             CODE_SIGN_STYLE=Manual
 
       - name: Export IPA
+        if: steps.check_secrets.outputs.has_secrets == 'true'
         run: |
           cd client/ios/App
           xcodebuild -exportArchive \
@@ -82,13 +112,15 @@ jobs:
             -exportOptionsPlist exportOptions.plist \
             -exportPath build/ipa
 
-      - name: Upload IPA Artifact (Downloadable from GitHub)
+      - name: Upload IPA Artifact
+        if: steps.check_secrets.outputs.has_secrets == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: Auralicht-iOS-IPA
           path: client/ios/App/build/ipa/*.ipa
 
       - name: Upload to App Store Connect / TestFlight
+        if: steps.check_secrets.outputs.has_secrets == 'true'
         env:
           APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.ASC_KEY_ID }}
           APP_STORE_CONNECT_API_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
